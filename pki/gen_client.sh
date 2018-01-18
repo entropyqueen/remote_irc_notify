@@ -4,8 +4,8 @@
 ## CLIENT SIDE
 ##
 echo "Generating and signing a client key:"
-# Generate client key
-openssl genrsa -des3 -out client.key 2048
+# Generate client key without encryption
+openssl genrsa -out client.key 2048
 
 # generate CSR
 openssl req -out client.csr -key client.key -new

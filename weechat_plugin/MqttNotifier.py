@@ -23,9 +23,9 @@ weechat.register(SCRIPT_NAME, SCRIPT_AUTHOR, SCRIPT_VERSION, SCRIPT_LICENSE, SCR
 def notify(data, bufferp, uber_empty, tagsn, isdisplayed, ishilight, prefix, message):
     if int(ishilight) == 1 and bufferp != weechat.current_buffer():
         client = mqtt.Client()
-        client.tls_set("/home/ark/projects/weechat-mqtt-notify/pub/ca.crt",
-                       "/home/ark/projects/weechat-mqtt-notify/pub/server.crt",
-                       "/home/ark/projects/weechat-mqtt-notify/pub/server.key")
+        client.tls_set("/home/ark/projects/weechat-mqtt-notify/pub/ca.crt"
+                       "/home/ark/projects/weechat-mqtt-notify/pub/client.crt",
+                       "/home/ark/projects/weechat-mqtt-notify/pub/client.key")
         client.connect("4rk.fr", 8883, 60)
         client.publish("mqtt_irc_hl", "%s: %s" % (prefix, message))
         client.disconnect()
